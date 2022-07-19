@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    button{
+        border:4px solid black;
+        margin-left: 7%;
+        padding: 1%;
+        font-size: 20px;
+    }
+    table{
+        margin:3% 7% 3% 7%;
+        width: 60%;
+        
+    }
+    td,th{
+        font-size: 25px;
+    }
+    input{
+        height: 40px;
+        width:300px;
+        font-size: 27px;
+    }
+    #tbody tr td{
+        text-align: center;
+
+    }
+</style>
+<body>
+    <table>
+        <tbody>
+            <tr>
+                <td>Product Id</td>
+                <td><input type="text" id="pid"></td>
+            </tr>
+            <tr>
+                <td>Product Name</td>
+                <td><input type="text" id="pname"></td>
+            </tr>
+            <tr>
+                <td>Product Price</td>
+                <td><input type="text" id="pprice"></td>
+            </tr>
+        </tbody>
+    </table>
+    <button onclick="process()">ADD PRODUCT</button>
+    <table >
+        <thead>
+                <tr>
+                    <th>Product Id</th>
+                    <th>Product Name</th>
+                    <th>Product Price</th>
+                </tr>
+        </thead>
+        <tbody id="tbody">
+               
+        </tbody>
+    </table>
+    <script>
+        function process()
+        {
+            var pid=document.getElementById('pid').value;
+            var pname=document.getElementById('pname').value;
+            var pprice=document.getElementById('pprice').value;
+            var row='<tr><td>'+pid+'</td><td>'+pname+'</td><td>'+pprice+'</td></tr>';
+            document.getElementById('tbody').innerHTML+=row;
+        }
+    </script>
+</body>
+</html>
