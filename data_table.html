@@ -36,7 +36,7 @@
         <tbody>
             <tr>
                 <td>Product Id</td>
-                <td><input type="text" id="pid"></td>
+                <td><input type="number" id="pid"></td>
             </tr>
             <tr>
                 <td>Product Name</td>
@@ -44,7 +44,7 @@
             </tr>
             <tr>
                 <td>Product Price</td>
-                <td><input type="text" id="pprice"></td>
+                <td><input type="number" id="pprice"></td>
             </tr>
         </tbody>
     </table>
@@ -62,13 +62,26 @@
         </tbody>
     </table>
     <script>
+        const arr=[];
         function process()
         {
+         
             var pid=document.getElementById('pid').value;
             var pname=document.getElementById('pname').value;
             var pprice=document.getElementById('pprice').value;
-            var row='<tr><td>'+pid+'</td><td>'+pname+'</td><td>'+pprice+'</td></tr>';
-            document.getElementById('tbody').innerHTML+=row;
+            arr.push({'pid':pid,'pname':pname,'pprice':pprice});
+            console.log(arr);
+            var row="";
+            for(i=0;i<arr.length;i++)
+            {
+            row+='<tr><td>'+arr[i].pid+'</td><td>'+arr[i].pname+'</td><td>'+arr[i].pprice+'</td></tr>';
+            }
+
+            document.getElementById('tbody').innerHTML=row;
+            document.getElementById('pid').value="";
+            document.getElementById('pname').value="";
+            document.getElementById('pprice').value="";
+
         }
     </script>
 </body>
