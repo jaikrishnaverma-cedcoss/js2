@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Optional Task 2b</title>
+</head>
+
+
+<style>
+    * {
+        margin: 0px;
+        padding: 0px;
+    }
+
+    body {
+        height: 100%;
+        width: 98%;
+        padding: 1%;
+        font-family: Ubuntu;
+        background-color: rgb(224, 224, 224);
+
+
+    }
+
+    .col div p,
+    h1 {
+        color: rgb(255, 0, 106);
+    }
+
+    .container {
+
+        display: flex;
+        height: 570px;
+        border: 3px thick rgb(74, 0, 194);
+        border-radius: 10px;
+    }
+
+    .col {
+        padding: 5%;
+        width: 48%;
+        border-radius: 5px;
+        height: 570px;
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    .form,
+    .div {
+        display: flex;
+        flex-direction: column;
+    }
+
+    p {
+        margin: 2% 0% 1% 0%;
+    }
+
+    .api {
+        display: flex;
+        justify-content: space-between;
+        margin: 3% 0px;
+    }
+
+    button {
+        width: 40%;
+        font-size: 18px;
+        padding: 1.5%;
+
+    }
+
+    .api button:nth-child(1) {
+        background-color: white;
+        border: 2px solid rgb(206, 206, 206);
+        border-radius: 5px;
+    }
+
+    .api button:nth-child(2) {
+        background-color: rgb(106, 13, 255);
+        border: 1px solid rgb(206, 206, 206);
+        border-radius: 5px;
+        color: white
+    }
+
+    i {
+        font-size: 30px;
+        margin: 0px 10px 0px 10px;
+    }
+
+    .div {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 50%;
+        background-color: rgb(106, 13, 255);
+        border-radius: 50px 50px 50px 0px;
+        box-shadow: 0 4px 8px 0 rgba(4, 0, 255, 0.377), 0 6px 20px 0 rgba(89, 0, 255, 0.849);
+
+        color: white;
+    }
+
+    .form div i {
+        color: rgb(116, 116, 116);
+        ;
+    }
+
+    .form div {
+        border-radius: 5px;
+        background-color: white;
+    }
+
+    .form {
+        width: 60%;
+    }
+
+    label {
+        margin: 3% 0% 1% 0%;
+    }
+
+    input {
+        height: 32px;
+
+        /* border: 1px solid rgb(106, 13, 255); */
+        border: none;
+        outline: none;
+        padding-left: 10px;
+        font-size: 19px;
+    }
+
+    input:active {
+        border: none;
+        outline: none;
+    }
+
+    input[type='button'] {
+        background-color: rgb(106, 13, 255);
+        color: white;
+        border-radius: 5px;
+        outline: 1px solid white;
+        margin-top: 7%
+    }
+
+    #login {
+        color: rgb(106, 13, 255);
+        font-weight: 900;
+    }
+
+    #or {
+        font-size: 30px;
+    }
+</style>
+
+
+
+
+<body>
+    <div class="container">
+        <div class="col" style="background-image: url('mob.webp');  background-repeat: no-repeat;
+        background-size: 100% 570px">
+            <div class="lefter" style=""></div>
+
+            <div class="lefter"></div>
+        </div>
+        <div class="col">
+            <div>
+                <h1>Get Started</h1>
+                <p>Already have an account?</p>
+                <p id="login">Log In</p>
+                <div class="api">
+                    <button><i class="fa fa-google" aria-hidden="true"></i>sign up</button>
+                    <button><i class="fa fa-facebook-square" aria-hidden="true"></i>sign up</button>
+                </div>
+
+            </div>
+            <p id="or" style="text-align: center;">Or</p>
+
+            <div class="div">
+               
+                    <div class="form">
+                    <label for="name">Name</label>
+                    <div> <i class="fa fa-user" aria-hidden="true"></i> <input id="name" placeholder="Enter the name"
+                            type="text" name="name"></div>
+
+                    <label for="email">Email</label>
+                    <div><i class="fa fa-envelope-open" aria-hidden="true"></i></i><input id="email" name="email"
+                            placeholder="Enter the email" type="email"></div>
+                    <label for="email">Password</label>
+                    <div> <i class="fa fa-key" aria-hidden="true"></i><input id="pass" name="pass" placeholder="***"
+                            type="password">
+                    </div>
+                    <input type="button" onclick="validator()" value="submit">
+                </div>
+              
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script>
+        function validator() {
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+            var pass = document.getElementById('pass').value;
+
+        var regx=/([A-Z][^\s]*)/;
+        var eregex=/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/;
+        var decimal = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{7,14}$/;
+            if (name.length > 25||!name.match(regx)) {
+                alert("Name should be less than 25 Character & Name should be have in Proper Case");
+                return false;
+            }
+            else if (email > 30||!email.match(eregex)) {
+                alert("Email is not valid & it be more than 30 characters.");
+                return false;
+            }
+            else if (pass.length <= 6 || pass.length >= 14 ||!pass.match(decimal)) {
+       
+                alert("password length must be 7 to 14 digit and have atleast 1 special char and 1 Upper case and lower case letter and number.");
+                    return false;
+        
+              
+            }
+            else {
+                alert('fine');
+                return false;
+            }
+        }
+
+  
+    
+        
+
+    </script>
+</body>
+
+
+</html>
