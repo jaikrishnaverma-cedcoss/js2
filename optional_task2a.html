@@ -114,7 +114,7 @@
             var email = document.getElementById('email').value;
             var pass = document.getElementById('pass').value;
 
-        var regx=/([A-Z][^\s]*)/;
+        var regx=/^(?:[A-Z][^\s]*\s?)+$/;
         var eregex=/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/;
         var decimal = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{7,14}$/;
             if (name.length > 25||!name.match(regx)) {
